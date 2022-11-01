@@ -35,7 +35,7 @@
             </div>
             <div class= "mb-3">
                 <label for="time" class="form-label">Start Time</label>
-                <input type="date" class="form-control" id="time" name="time">
+                <input type="time" class="form-control" id="time" name="time">
             </div>
             <div class= "mb-3">
                 <label for="duration" class="form-label">Duration (Days)</label>

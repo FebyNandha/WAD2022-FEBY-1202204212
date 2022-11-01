@@ -15,7 +15,7 @@ $time = $_POST['time'];
 $duration = $_POST['duration'];
 $car = $_POST['car'];
 $phone = $_POST['phone'];
-$checkin = date('m-d-Y H:i:s', strtotime("$date $time"));
+$in = date('m-d-Y H:i:s', strtotime("$date $time"));
 $out = date('d-m-Y H:i:s', strtotime("$in + $duration days"));
 if (isset($_POST['service'])){
     $service = $_POST['service'];
