@@ -44,7 +44,7 @@
 
             <div class="mb-3">
                 <label for="merk" class="form-label"><strong>Tanggal Beli</strong></label>
-                <input type="text" class="form-control" name="tanggal_beli">
+                <input type="date" class="form-control" name="tanggal_beli">
             </div>
 
             <div class="mb-3">
@@ -57,15 +57,19 @@
                 <input class="form-control" type="file" name="foto_mobil">
             </div>
 
-            <form action="/action_page.php">
-                <p>Status Pembayaran</p>
-                <input type="radio" id="lunas" name="status_pembayaran" value="lunas">
-                <label for="lunas">Lunas</label>
-                <input type="radio" id="belum" name="status_pembayaran" value="belum">
-                <label for="belum">Belum Lunas</label><br><br>
-            </form>
+            <div class="mb-3">
+                <label for="option"><strong>Status Pembayaran</strong></label>
+                <div class="form-check">
+                    <label class="form-check-label">Lunas</label>
+                    <input type="radio" class="form-check-input" value="lunas" nama="Lunas">
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">Belum Lunas</label>
+                    <input type="radio" class="form-check-input" value="belum" nama="Belum Lunas">
+                </div>
+            </div>
 
-            <input class="btn btn-primary" type="submit" name="submit" value="Selesai" href="insert.php">
+            <input class="btn btn-primary" type="submit" value="Selesai">
         </form>
     </div>
 </body>

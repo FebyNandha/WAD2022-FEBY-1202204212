@@ -5,6 +5,6 @@ $database = "modul3";
 $username = "root";
 $password = "";
 
-$conn = new mysqli($servername, $database, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $database, 3309);
 
 ?>
