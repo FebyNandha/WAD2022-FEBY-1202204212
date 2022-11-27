@@ -14,7 +14,7 @@
         <div class="nav">
             <ul>
                 <li><a href="Home-Feby.php" class="active">Home</li></a>
-                <li><a href="Add-Feby.php" class="active">MyCar</li></a>
+                <li><a href="ListCar-Feby.php" class="active">MyCar</li></a>
             </ul>
         </div>
     </div>
@@ -25,31 +25,31 @@
             <p>Tambah Mobil Baru Anda Ke List Show Room</p><br><br>
         </div>
 
-        <form action="insert.php" method="POST" enctype="multipart/form-data">
+        <form action="./insert.php" method="POST" enctype="multipart/form-data">
 
             <div class="mb-3">
                 <label for="car" class="form-label"><strong>Nama Mobil</strong></label>
-                <input type="text" class="form-control" name="nama_mobil">
+                <input type="text" class="form-control" name="nama_mobil" placeholder="BMW 14">
             </div>
 
             <div class="mb-3">
                 <label for="nama" class="form-label"><strong>Nama Pemilik</strong></label><br>
-                <input type="text" class="form-control" name="pemilik_mobil">
+                <input type="text" class="form-control" name="pemilik_mobil" placeholder="Nama - NIM">
             </div>
 
             <div class="mb-3">
                 <label for="merk" class="form-label"><strong>Merk</strong></label>
-                <input type="text" class="form-control" name="merk_mobil">
+                <input type="text" class="form-control" name="merk_mobil" placeholder="BWM">
             </div>
 
             <div class="mb-3">
-                <label for="merk" class="form-label"><strong>Tanggal Beli</strong></label>
+                <label for="tanggal" class="form-label"><strong>Tanggal Beli</strong></label>
                 <input type="date" class="form-control" name="tanggal_beli">
             </div>
 
             <div class="mb-3">
-                <label for="formFile" class="form-label"><strong>Deskripsi</strong></label>
-                <input class="form-control" type="text" name="deskripsi">
+                <label for="Deskripsi" class="form-label"><strong>Deskripsi</strong></label>
+                <textarea class="form-control" rows="3" name="deskripsi"></textarea>
             </div>
 
             <div class="mb-3">
@@ -61,11 +61,11 @@
                 <label for="option"><strong>Status Pembayaran</strong></label>
                 <div class="form-check">
                     <label class="form-check-label">Lunas</label>
-                    <input type="radio" class="form-check-input" value="lunas" nama="Lunas">
+                    <input type="radio" class="form-check-input" value="lunas" name="status_pembayaran">
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">Belum Lunas</label>
-                    <input type="radio" class="form-check-input" value="belum" nama="Belum Lunas">
+                    <input type="radio" class="form-check-input" value="belum lunas" name="status_pembayaran">
                 </div>
             </div>
 

@@ -18,9 +18,9 @@
 
     if($query){
          echo "<script>alert('Data berhasil ditambahkan')</script>";
-         echo "<meta http-equiv='refresh' content='1 url=ListCar-Feby.php'>";
+         echo "<meta http-equiv='refresh' content='1 url=ListCar_Feby.php'>";
      } else {
          echo "<script>alert('Data gagal ditambahkan')</script>";
-         echo "<meta http-equiv='refresh' content='1 url=ListCar-Feby.php'>"; 
+         echo "<meta http-equiv='refresh' content='1 url=ListCar_Feby.php'>"; 
      }
 ?>

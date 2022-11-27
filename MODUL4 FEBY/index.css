@@ -5,40 +5,23 @@
     list-style: none;
 }
 
-body{
+body {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.header{
-    background-color:cornflowerblue;
-    height: 70px;
+.registration {
+    float: right;
 }
 
-.header .nav li{
+.left {
     float: left;
-    padding: 25px 25px;
 }
 
-.wrapper {
-    margin-left: 135px;
-    margin-top: 45px;
-}
-
-.wrapper .img2 {
-    float: left;
-    font-size: 15px;
-    padding: 20px 15px;
-}
-
-.wrapper .nama{
-    float: left;
-    padding: 28px 15px;
-    font-size: 10px;
-}
-
-.active {
-    color: white;
-    text-decoration: none;
+.right {
+    display: flex;
+    height: 850px;
+    justify-content: center;
+    align-items: center;
 }
 
 .img {
@@ -56,6 +39,23 @@ body{
 .greet2 {
     font-size: 20px;
     font-weight: normal;
+}
+
+.wrapper {
+    margin-left: 135px;
+    margin-top: 45px;
+}
+
+.wrapper .img2 {
+    float: left;
+    font-size: 15px;
+    padding: 20px 15px;
+}
+
+.wrapper .nama{
+    float: left;
+    padding: 28px 15px;
+    font-size: 10px;
 }
 
 .button {

@@ -15,7 +15,7 @@
         <div class="nav">
             <ul>
                 <li><a href="Home-Feby.php" class="active">Home</li></a>
-                <li><a href="Add-Feby.php" class="active">MyCar</li></a>
+                <li><a href="ListCar-Feby.php" class="active">MyCar</li></a>
             </ul>
         </div>
     </div>
@@ -61,13 +61,17 @@
                 <input class="form-control" type="text" placeholder="BMW 14.jpg" aria-label="Disabled input example" disabled>
             </div>
 
-            <form action="/action_page.php">
-                <p>Status Pembayaran</p>
-                <input type="radio" id="lunas" name="status_pembayaran" value="lunas">
-                <label for="lunas">Lunas</label>
-                <input type="radio" id="belum" name="status_pembayaran" value="belum">
-                <label for="belum">Belum Lunas</label><br><br>
-            </form>
+            <div class="mb-3">
+                <label for="option"><strong>Status Pembayaran</strong></label>
+                <div class="form-check">
+                    <label class="form-check-label">Lunas</label>
+                    <input type="radio" class="form-check-input" value="lunas" name="status_pembayaran" checked>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">Belum Lunas</label>
+                    <input type="radio" class="form-check-input" value="belum" name="status_pembayaran">
+                </div>
+            </div>
 
             <input class="btn btn-primary" type="submit" name="submit" value="Edit" href="Edit-Feby.php">
         </form>
