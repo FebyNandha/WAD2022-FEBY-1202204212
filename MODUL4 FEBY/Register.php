@@ -2,46 +2,35 @@
  
 include 'connector.php';
  
-error_reporting(0);
- 
-session_start();
- 
-if (isset($_SESSION['nama'])) {
-    header("Location: Login.php");
-}
- 
 if (isset($_POST['submit'])) {
     $nama = $_POST['nama'];
-    $email = $_POST['emailAdd'];
-    $password = md5($_POST['password']);
-    $cpassword = md5($_POST['cpassword']);
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $cpassword = $_POST['cpassword'];
     $no_hp = $_POST['no_hp'];
- 
-    if ($password == $cpassword) {
-        $sql = "SELECT * FROM user_feby WHERE emailAdd='$email'";
-        $result = mysqli_query($conn, $sql);
-        if (!$result->num_rows > 0) {
-            $sql = "INSERT INTO user_feby (nama, email, password)
-                    VALUES ('$nama', '$email', '$password')";
-            $result = mysqli_query($conn, $sql);
-            if ($result) {
-                echo "<script>alert('Selamat, registrasi berhasil!')</script>";
-                $nama = "";
-                $email = "";
-                $_POST['password'] = "";
-                $_POST['cpassword'] = "";
-            } else {
-                echo "<script>alert('Terjadi kesalahan.')</script>";
-            }
-        } else {
-            echo "<script>alert('! Email Sudah Terdaftar !.')</script>";
-        }
-         
+
+    $user = mysqli_query($conn, "SELECT * FROM user_feby WHERE email = '$email'");
+    $login = mysqli_num_rows($user);
+
+    if ($login > 0) {
+        echo "<script>
+        alert ('Email telah terdaftar');
+        window.location = 'Register.php';
+        </script>";
     } else {
-        echo "<script>alert('Password Tidak Sesuai')</script>";
-    }
-}
- 
+        if($password != $cpassword) {
+            echo "<script>
+            alert ('Kata sandi salah');
+            window.location = 'Register.php' ;
+            </script>";
+        } else {
+            mysqli_query($conn, "INSERT INTO user_feby VALUES('', '$nama', '$email', '$password', '$no_hp')");
+            echo "<script>
+            alert ('Data berhasil disimpan');
+            window.location = 'Login.php';
+            </script>";
+        }
+    }}
 ?>
 
 <!DOCTYPE html>
@@ -55,21 +44,20 @@ if (isset($_POST['submit'])) {
   </head>
 
   <body>
-    
-    <div class="container">
-        <div class="card-container">
-            <div class="left">
-                <div class="left-container">
-                    <img src="car3.jpg" alt="Display Car" width="900px" height="850px">
+
+        <div class="row align-items-left">
+                <div class="col">
+                    <div class="row">
+                    <img src="car3.jpg" alt="Display Car" width="50%">
                 </div>
             </div>
-            <div class="right">
-                <div class="right-container">
+            <div class="col mt-5">
+                <!-- <div class=""> -->
                     <h2>Register</h2><br><br>
-                    <form action="./insert2.php" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="emailAdd" required>
+                            <input type="email" class="form-control" name="email" required>
                         </div>
 
                         <div class="mb-3">
@@ -92,12 +80,10 @@ if (isset($_POST['submit'])) {
                             <input type="password" class="form-control" name="cpassword" onkeyup='check();' required>
                         </div>
 
-                        <input class="btn btn-primary" type="submit" value="Daftar"><br><br>
+                        <input class="btn btn-primary" type="submit" value="Daftar" name="submit" ><br><br>
                         <p> Anda sudah punya akun? <a class="btn btn-link" href="Login.php">Login</a><p>
                     </form>
                 </div>
             </div>
-        </div>    
-    </div>
 </body>
 </html>

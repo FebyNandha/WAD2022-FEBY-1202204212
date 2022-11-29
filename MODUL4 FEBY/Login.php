@@ -1,31 +1,21 @@
 <?php 
  
- include 'connector.php';
-  
- error_reporting(0);
-  
- session_start();
-  
- if (isset($_SESSION['nama'])) {
-     header("Location: HomeAfter.php");
- }
-  
- if (isset($_POST['submit'])) {
-     $email = $_POST['emailAdd'];
-     $password = md5($_POST['password']);
-  
-     $sql = "SELECT * FROM user_feby WHERE emailAdd='$email' AND password='$password'";
-     $result = mysqli_query($conn, $sql);
-     if ($result->num_rows > 0) {
-         $row = mysqli_fetch_assoc($result);
-         $_SESSION['nama'] = $row['nama'];
-         header("Location: HomeAfter.php");
-     } else {
-         echo "<script>alert('Email atau password Anda salah. Silahkan coba lagi!')</script>";
-     }
- }
-  
- ?>
+include 'connector.php';
+ 
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $result = mysqli_query($conn, "SELECT * FROM user_feby WHERE email='$email' ");
+    if (mysqli_num_rows($result) == 1) {
+        $row = mysqli_fetch_assoc($result);
+        if($password == $row["password"]) {
+            header('Location: HomeAfter.php');
+            exit;
+        }
+    }
+    $error = true;
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,24 +28,22 @@
   </head>
 
 <body>
-    <div class="alert alert-warning" role="alert">
-        <?php echo $_SESSION['error']?>
-    </div>
- 
-    <div class="container">
-        <div class="card-container">
-            <div class="left">
-                <div class="left-container">
-                    <img src="car3.jpg" alt="Display Car" width="900px" height="850px">
+        <div class="row align-items-left">
+                <div class="col">
+                    <div class="row">
+                    <img src="car3.jpg" alt="Display Car" width="50%">
                 </div>
             </div>
-            <div class="right">
-                <div class="right-container">
+            <div class="col mt-5">
+                <!-- <div class="right-container"> -->
                     <h2>Login</h2><br><br>
-                    <form action="./insert2.php" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <?php if(isset($error)): ?>
+                            <p style="color:red;">Email / Password Salah!</p>
+                        <?php endif; ?>
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input type="email" class="form-control" name="emailAdd">
+                            <input type="email" class="form-control" name="email">
                         </div>
 
                         <div class="mb-3">
@@ -70,12 +58,11 @@
                             </label>
                         </div><br><br>
 
-                        <a class="btn btn-primary" type="submit" href="HomeAfter.php" value="Login">Login</a><br><br>
+                        <button class="btn btn-primary" type="submit" value="Login" name="login">Login</button><br><br>
                         <p> Anda belum punya akun? <a class="btn btn-link" href="Register.php" role="button">Daftar</a><p>
                     </form>
                 </div>
             </div>
         </div>    
-    </div>
 </body>
 </html>

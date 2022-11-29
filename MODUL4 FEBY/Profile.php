@@ -34,7 +34,7 @@
     </nav>
 
     <p class="text-center fw-bold fs-2">Profile</p>
-
+  <div class="container">
     <form action="./insert.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3 row ">
             <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
@@ -82,7 +82,7 @@
 
         <input class=" btn btn-primary d-grid gap-2 col-1 mx-auto" type="submit" value="Update"><br><br>
     </form>
-
+  </div>
     <footer>
         <div class="wrapper">
             <div class="img2">
