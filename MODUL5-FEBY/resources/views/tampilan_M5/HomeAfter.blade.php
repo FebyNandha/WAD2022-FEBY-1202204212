@@ -14,11 +14,11 @@
     <nav class="navbar navbar-expand-sm bg-info navbar-dark p-3">
         <div class="container-fluid">
             <ul class="navbar-nav pl-3">
-                <li class="nav-item"><a class="nav-link active" href="HomeAfter.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link active" href="ListCar_Feby.php">MyCar</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{url('/')}}">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="ListCar_Feby">MyCar</a></li>
             </ul>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="Add_Feby.php" button type="button" class="btn btn-light text-secondary ">Add Car</a>
+                <a href="{{url('/Add_Feby')}}" button type="button" class="btn btn-light text-secondary ">Add Car</a>
                 <div class="dropdown">
                     <button class="btn btn-light text-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Feby
@@ -33,10 +33,10 @@
     </nav>
 
     <div class="img">
-        <img src="car2.jpeg" alt="ShowRoom Feby" width="700" height="450">
+        <img src="../images/car2.jpeg" alt="ShowRoom Feby" width="700" height="450">
     </div>
     <div class="greet">
-        <p>Selamat Datang Di <br> Show Room</p>
+        <p>Selamat Datang Di Show Room Feby</p>
         <div class="greet2">
             <p class="text-black text-opacity-50">At lacus vitae nulla sagittis scelerisque nisl. Pellentesque duis <br> cursus vestibulum. facili ac. sed faucibus</p>
         </div>
@@ -48,7 +48,7 @@
 
     <div class="wrapper">
         <div class="img2">
-            <img src="logo-ead.png" alt="EAD Practicum" width="130" height="30">
+            <img src="../images/logo-ead.png" alt="EAD Practicum" width="130" height="30">
         </div>
         <div class="nama">
             <p>Feby_1202204212</p>
