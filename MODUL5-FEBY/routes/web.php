@@ -28,6 +28,5 @@ Route::get('/List_Feby', function () {
 
 Route::resource('tampilan_M5', ShowroomController::class);
 Route::get('/tampilan_M5', 'App\Http\Controllers\ShowroomController@create');
-
 	
 Route::post('/tampilan_M5', 'App\Http\Controllers\ShowroomController@store');

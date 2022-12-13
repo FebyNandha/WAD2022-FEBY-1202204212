@@ -19,6 +19,8 @@ class ShowroomController extends Controller
 
     public function store(Request $request)
     {
+        $MyImage=time().'.'.$request->foto_mobil->extension();
+        $request->foto_mobil->move(public_path("image"), $MyImage);
         // $imgName = $request->img_path->getClientOriginalName() . '-' . time()
         //             . '.' . $request->img_path->extension();
         // $request->img_path->move(public_path('image'), $imgName);
@@ -29,7 +31,7 @@ class ShowroomController extends Controller
             'brand' => $request -> merk_mobil,
             'purchase_date' => $request -> tanggal_beli,
             'description' => $request -> deskripsi,
-            'image' => $request -> foto_mobil,
+            'image' => $MyImage,
             'status' => $request -> status_pembayaran
         ]);
 
@@ -47,11 +49,10 @@ class ShowroomController extends Controller
     {
         $car = Showroom::find($id);
 
-        $imgName = $car->img_path;
-        if ($request->img_path) {
-            $imgName = $request->img_path->getClientOriginalName() . "-" . time()
-                        . "." . $request->img_path->extension();
-            $request->img_path->move(public_path('image'), $imgName);
+        $MyImage = $car->foto_mobil;
+        if ($request->foto_mobil) {
+            $MyImage=time().'.'.$request->foto_mobil->extension();
+            $request->foto_mobil->move(public_path("image"), $MyImage);
         }
 
         Showroom::find($id)->update([
@@ -60,11 +61,11 @@ class ShowroomController extends Controller
             'brand' => $request -> merk_mobil,
             'purchase_date' => $request -> tanggal_beli,
             'description' => $request -> description,
-            'image' => $request -> foto_mobil,
+            'image' => $MyImage,
             'status' => $request -> status_pembayaran
         ]);
 
-        return redirect('/product');
+        return redirect('/tampilan_M5');
 
     }
 
